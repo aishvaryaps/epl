@@ -1,23 +1,28 @@
-
-<div *ngIf="matchdetails" class="parentContainer">
-  <table class="tg" *ngFor="let matchesplayed of matchdetails.rounds">
-    <tr>
-      <td class="tg-phtq">Date</td>
-      <td class="tg-phtq">TEAM 1</td>
-      <td class="tg-phtq">SCORE 1</td>
-      <td class="tg-phtq">SCORE 2</td>
-      <td class="tg-phtq">TEAM 2</td>
-    </tr>
-    <tr class="tg-phtq">
-      <td colspan="5">{{matchesplayed.name}}</td>
-    </tr>
-    <tr *ngFor="let eachmatch of matchesplayed.matches">
-      <td class="tg-0pky">{{eachmatch.date}}</td>
-      <td class="tg-0pky">{{eachmatch.team1.name}}</td>
-      <td class="tg-0pky">{{eachmatch.score1}}</td>
-      <td class="tg-0pky">{{eachmatch.score2}}</td>
-      <td class="tg-0pky">{{eachmatch.team2.name}}</td>
-    </tr>
-    <tr> </tr>
-  </table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="calender box-shadow"></div>
+      <div class="teamlist box-shadow"></div>
+    </div>
+    <div class="col-md-9">
+      <div class="row" *ngFor="let matchesplayed of matchdetails.rounds">
+        <div class="matchday box-shadow">{{matchesplayed.name}}</div>
+        <div class="matchlist">
+          <div class="match matchSeperator" *ngFor="let eachmatch of matchesplayed.matches">
+            <div class="container">
+              <div class="row match-row">
+                <div class="col-md-1 matchdate">
+                  <div class="matchdate">{{eachmatch.date.getDate()}} </div>
+                  <div class="matchmonth">{{monthNames[eachmatch.date.getMonth()]}}</div>
+                </div>
+                <div class="col-md-4 text-in-middle">{{eachmatch.team1.name}}</div>
+                <div class="col-md-3 text-in-middle">{{eachmatch.score1}} - {{eachmatch.score2}}</div>
+                <div class="col-md-4 text-in-middle">{{eachmatch.team2.name}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

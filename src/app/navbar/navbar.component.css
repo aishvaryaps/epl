@@ -1,0 +1,13 @@
+.epl-navbar{
+    background-image: linear-gradient(to left, #0b3688 60%, #1d56c1,#d3deef);
+    box-shadow: 0 1px 5px 0px #050b17;
+    margin-bottom: 20px;
+}
+.epl-brand{
+   color: #fff;
+   padding: 0;
+}
+
+.epl-font{
+    color: #fff !important;
+}

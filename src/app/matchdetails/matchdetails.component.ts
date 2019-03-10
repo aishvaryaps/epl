@@ -8,12 +8,18 @@ import { MatchdataService } from '../matchdata.service';
 })
 export class MatchdetailsComponent implements OnInit {
   matchdetails: any;
+  monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+  ];
+
   constructor(private matchdata: MatchdataService) { }
 
   ngOnInit() {
     this.matchdata.getJSON().subscribe(data => {
       this.matchdetails = data
-        //console.log(this.matchdetails);
+      this.matchdetails.rounds.map(round => {
+        round.matches.map(match => match.date = new Date(match.date))
+      })
     })
   }
 }

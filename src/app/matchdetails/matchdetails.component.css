@@ -1,64 +1,68 @@
-.tg {
+.matchday{
+    text-align: center;
+    background: #535454;
     width: 100%;
-    border-collapse:collapse;
-    border-spacing:0;
-    border-color:#aabcfe;
+    color: #fff;
+    font-size: 1.4em;
+    box-shadow: 0px 0px;
+    border-radius: 5px;
+    padding: 3px;
+    margin-bottom: 10px;
 }
- .tg td{
-    font-family:Arial, sans-serif;
-    font-size:14px;
-    padding:10px 5px;
-    border-style:solid;
-    border-width:1px;
-    overflow:hidden;
-    word-break:normal;
-    border-color:#aabcfe;
-    color:#669;
-    background-color:#e8edff;
+
+.matchlist{
+    text-align: center;
+    width: 100%;
+    color: #535454;
+    font-size: 1.2em;
+    box-shadow: 0px 0px;
+    border-radius: 5px;
+    padding: 3px;
 }
- .tg th{
-    font-family:Arial, sans-serif;
-    font-size:14px;
-    font-weight:normal;
-    padding:10px 5px;
-    border-style:solid;
-    border-width:1px;
-    overflow:hidden;
-    word-break:normal;
-    border-color:#aabcfe;
-    color:#039;
-    background-color:#b9c9fe;
+
+.match{
+    background: aliceblue;
+    border-radius: 2px;
 }
- .tg .tg-phtq{
-    background-color:#D2E4FC;
-    border-color:inherit;
-    text-align:left;
-    vertical-align:top
+
+.matchSeperator{
+    margin-bottom: 8px;
+    box-shadow: 0 1px 2px #777;
 }
- .tg .tg-c3ow{
-    border-color:inherit;
-    text-align:center;
-    vertical-align:top
+
+.calender{
+    background: #eccbcb;
+    height: 220px;
+    border-radius: 2px;
+    border: 1px dashed #b59a9a;
+    margin-bottom: 16px;
 }
- .tg .tg-ydyv{
-    background-color:#D2E4FC;
-    border-color:inherit;
-    text-align:right;
-    vertical-align:top
+
+.teamlist{
+    background: #eccbcb;
+    height: 300px;
+    border-radius: 2px;
+    border: 1px dashed #b59a9a;
 }
- .tg .tg-0pky{
-    border-color:inherit;
-    text-align:left;
-    vertical-align:top
+
+.matchdate{
+    font-size: 20px;
 }
- .tg .tg-dvpl{
-    border-color:inherit;
-    text-align:right;
-    vertical-align:top
+
+.matchmonth{
+    font-size: 15px;
 }
- .parentContainer{
-    margin: auto;
-     width: 50%;
-     border: 3px solid green;
-     padding: 10px;
+
+.match-row{
+    height: 55px;
+}
+
+.text-in-middle{
+    text-align: center;
+    vertical-align: middle;
+    line-height: 55px;
+}
+
+.box-shadow{
+    box-shadow: 0 3px 2px #777;
 }
