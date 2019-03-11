@@ -1,6 +1,6 @@
 .matchday{
     text-align: center;
-    background: #535454;
+    background-image: linear-gradient(to right, #630b09 0%, #d22120 100%);
     width: 100%;
     color: #fff;
     font-size: 1.4em;
@@ -13,7 +13,7 @@
 .matchlist{
     text-align: center;
     width: 100%;
-    color: #535454;
+    color: #313535;
     font-size: 1.2em;
     box-shadow: 0px 0px;
     border-radius: 5px;
@@ -21,7 +21,7 @@
 }
 
 .match{
-    background: aliceblue;
+    background: #f0f8ffe0;
     border-radius: 2px;
 }
 
@@ -64,5 +64,21 @@
 }
 
 .box-shadow{
-    box-shadow: 0 3px 2px #777;
+    box-shadow: 0 3px 2px #7777777a;
+}
+
+.custom-drpdwn{
+    width: 100%;
+    background: none;
+    color: #fff !important;
+    margin: auto 0;
+    border: navajowhite;
+    text-align: center;
+    text-align-last: center; 
+}
+
+.custom-drpdwn option{
+    width: 100%;
+    background-color: rgba(210, 33, 32, 0.8);
+    font-size: 15px;
 }

@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+.fb-bg{
+ background-image: url('https://layout.eurosport.com/i/v8/match/backgrounds/large/background_v8_s22.jpg');
+ background-repeat: no-repeat;
+ background-size: cover;
+}
