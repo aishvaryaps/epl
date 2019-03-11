@@ -21,7 +21,7 @@
 }
 
 .match{
-    background: #f0f8ffe0;
+    background: #f0f8ffc7;
     border-radius: 2px;
 }
 
@@ -34,7 +34,6 @@
     background: #eccbcb;
     height: 220px;
     border-radius: 2px;
-    border: 1px dashed #b59a9a;
     margin-bottom: 16px;
 }
 
@@ -42,7 +41,6 @@
     background: #eccbcb;
     height: 300px;
     border-radius: 2px;
-    border: 1px dashed #b59a9a;
 }
 
 .matchdate{
@@ -64,7 +62,7 @@
 }
 
 .box-shadow{
-    box-shadow: 0 3px 2px #7777777a;
+    box-shadow: 0 1px 1px #777;
 }
 
 .custom-drpdwn{
