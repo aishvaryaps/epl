@@ -31,7 +31,7 @@
 }
 
 .calender{
-    background: #eccbcb;
+    background-image: linear-gradient(to right, #630b09 0%, #d22120 100%);
     border-radius: 2px;
     margin-bottom: 16px;
 }
@@ -78,4 +78,8 @@
     width: 100%;
     background-color: rgba(210, 33, 32, 0.8);
     font-size: 15px;
+}
+
+.font-color-major{
+ color: #fff;
 }
