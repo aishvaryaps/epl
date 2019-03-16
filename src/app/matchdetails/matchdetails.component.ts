@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatchdataService } from '../matchdata.service';
+import { INgxMyDpOptions, IMyDateModel } from 'ngx-mydatepicker';
 
 @Component({
   selector: 'app-matchdetails',
@@ -13,6 +14,14 @@ export class MatchdetailsComponent implements OnInit {
   ];
   currentMatchday = '';
   currenMatchdayName = '';
+
+  myOptions: INgxMyDpOptions = {
+    // other options...
+    dateFormat: 'dd.mm.yyyy',
+    satHighlight: true
+  };
+
+  filterDate: any;
 
   constructor(private matchdata: MatchdataService) { }
 

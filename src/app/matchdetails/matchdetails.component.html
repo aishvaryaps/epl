@@ -1,17 +1,36 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <div class="calender box-shadow"></div>
+      <div class="calender box-shadow">
+        <form>
+          <div class="input-group">
+            <input class="form-control" style="float:none" placeholder="Select a date" ngx-mydatepicker name="mydate"
+              [(ngModel)]="filterDate" [options]="myOptions" #dp="ngx-mydatepicker"/>
+
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" (click)="dp.clearDate()">
+                <fa name="times"></fa>
+              </button>
+              <button type="button" class="btn btn-default" (click)="dp.toggleCalendar()">
+                <fa name="calendar"></fa>
+              </button>
+            </span>
+          </div>
+        </form>
+      </div>
       <div class="teamlist box-shadow"></div>
     </div>
     <div class="col-md-9">
-       <div class="row" > <!--*ngFor="let matchesplayed of matchdetails.rounds"> -->
+      <div class="row">
+        <!--*ngFor="let matchesplayed of matchdetails.rounds"> -->
         <div class="matchday box-shadow">
-          <select name="matchday" class="custom-drpdwn" [(ngModel)]='currenMatchdayName' (change)="setMatchDayDetails(currenMatchdayName)">
-            <option value={{currentMatchday.name}} *ngFor="let currentMatchday of matchdetails.rounds">{{currentMatchday.name}}</option>
+          <select name="matchday" class="custom-drpdwn" [(ngModel)]='currenMatchdayName'
+            (change)="setMatchDayDetails(currenMatchdayName)">
+            <option value={{currentMatchday.name}} *ngFor="let currentMatchday of matchdetails.rounds">
+              {{currentMatchday.name}}</option>
           </select></div>
         <div class="matchlist">
-          <div class="match matchSeperator" *ngFor="let eachmatch of currentMatchday.matches">
+          <div class="match matchSeperator" *ngFor="let eachmatch of currentMatchday.matches| matchByDate: filterDate">
             <div class="container">
               <div class="row match-row">
                 <div class="col-md-1 matchdate">

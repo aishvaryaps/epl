@@ -9,6 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { MatchdetailsComponent } from './matchdetails/matchdetails.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
+import { MatchByDatePipe } from './match-by-date.pipe';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,16 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     HomeComponent,
     MatchdetailsComponent,
-    ScoreboardComponent
+    ScoreboardComponent,
+    MatchByDatePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AngularFontAwesomeModule,
+    NgxMyDatePickerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
