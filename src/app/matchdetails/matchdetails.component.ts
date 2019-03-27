@@ -23,6 +23,8 @@ export class MatchdetailsComponent implements OnInit {
 
   filterDate: any;
 
+  allTeams: string[];
+
   constructor(private matchdata: MatchdataService) { }
 
   ngOnInit() {
@@ -34,10 +36,19 @@ export class MatchdetailsComponent implements OnInit {
       this.matchdetails.rounds.map(round => {
         round.matches.map(match => match.date = new Date(match.date))
       })
+      this.getTeams()
     })
   }
 
   setMatchDayDetails = (matchday) => {
     this.currentMatchday = this.matchdetails.rounds.find(elem => elem.name === matchday)
+  }
+
+  getTeams = () => {
+    this.allTeams = ([].concat.apply([], this.matchdetails.rounds.map(round => round.matches.reduce((x, y) => x.findIndex(e => e.team1.key == y.team1.key) < 0 ? [...x, y] : x, []))).map(match => match.team1.name).filter(this.distinct))
+  }
+
+  distinct = (value, index, self) => {
+    return self.indexOf(value) === index
   }
 }

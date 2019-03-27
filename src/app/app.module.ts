@@ -11,6 +11,8 @@ import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
+import { ChartsModule } from 'ng2-charts';
+
 import { MatchByDatePipe } from './match-by-date.pipe';
 
 @NgModule({
@@ -28,7 +30,8 @@ import { MatchByDatePipe } from './match-by-date.pipe';
     HttpClientModule,
     FormsModule,
     AngularFontAwesomeModule,
-    NgxMyDatePickerModule.forRoot()
+    NgxMyDatePickerModule.forRoot(),
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
