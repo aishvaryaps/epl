@@ -5,7 +5,7 @@
         <form>
           <div class="input-group">
             <input class="form-control" style="float:none" placeholder="Select a date" ngx-mydatepicker name="mydate"
-              [(ngModel)]="filterDate" [options]="myOptions" #dp="ngx-mydatepicker"/>
+              [(ngModel)]="filterDate" [options]="myOptions" #dp="ngx-mydatepicker" />
 
             <span class="input-group-btn">
               <button type="button" class="btn btn-default" (click)="dp.clearDate()">
@@ -19,20 +19,48 @@
         </form>
       </div>
       <div class="teamlist box-shadow">
-        <div class="col-md-12" *ngFor="let team of allTeams">{{team}}</div>
+        <div class="col-md-12 teamName" *ngFor="let team of allTeams; let i = index">
+            <!-- <input class="teamCheck" #chkEnable ngModel type="checkbox" (change)="updateCheckedTeam(chkEnable.checked, team)"/> -->
+            <div class="checkboxFive">
+                <input attr.id = "check_{{i}}" class="teamCheck" #chkEnable ngModel type="checkbox" (change)="updateCheckedTeam(chkEnable.checked, team)"/>
+                <label for="check_{{i}}"></label>
+            </div>
+            
+            {{team}}
+        </div>
       </div>
     </div>
     <div class="col-md-9">
       <div class="row">
         <!--*ngFor="let matchesplayed of matchdetails.rounds"> -->
         <div class="matchday box-shadow">
-          <select name="matchday" class="custom-drpdwn" [(ngModel)]='currenMatchdayName'
-            (change)="setMatchDayDetails(currenMatchdayName)">
+          <select name="matchday" class="custom-drpdwn" [(ngModel)]='currenMatchdayName'>
+            <!-- (change)="setMatchDayDetails(currenMatchdayName)" -->
             <option value={{currentMatchday.name}} *ngFor="let currentMatchday of matchdetails.rounds">
               {{currentMatchday.name}}</option>
           </select></div>
-        <div class="matchlist">
-          <div class="match matchSeperator" *ngFor="let eachmatch of currentMatchday.matches| matchByDate: filterDate">
+        <div class="round" *ngFor="let round of matchdetails.rounds | roundFilter: currenMatchdayName">
+          <div class="matchlist">
+            <!-- <div class="roundName" [ngIf]="(matchdetails.rounds | roundFilter: currentMatchday.name).length > 1">{{round.name}}</div> -->
+            {{checkedTeam}}
+            <div class="match matchSeperator" *ngFor="let eachmatch of round.matches | matchByDate: filterDate | teamFilter: checkedTeam">
+              <div class="container">
+                <div class="row match-row">
+                  <div class="col-md-1 matchdate">
+                    <div class="matchdate">{{eachmatch.date.getDate()}} </div>
+                    <div class="matchmonth">{{monthNames[eachmatch.date.getMonth()]}}</div>
+                  </div>
+                  <div class="col-md-4 text-in-middle">{{eachmatch.team1.name}}</div>
+                  <div class="col-md-3 text-in-middle">{{eachmatch.score1}} - {{eachmatch.score2}}</div>
+                  <div class="col-md-4 text-in-middle">{{eachmatch.team2.name}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="matchlist">
+          <div class="match matchSeperator" *ngFor="let eachmatch of currentMatchday.matches | matchByDate: filterDate">
             <div class="container">
               <div class="row match-row">
                 <div class="col-md-1 matchdate">
@@ -45,7 +73,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

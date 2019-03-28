@@ -24,18 +24,19 @@ export class MatchdetailsComponent implements OnInit {
   filterDate: any;
 
   allTeams: string[];
+  checkedTeam: string[] = [];
 
   constructor(private matchdata: MatchdataService) { }
 
   ngOnInit() {
     this.matchdata.getJSON().subscribe(data => {
       this.matchdetails = data
-      // this.currentMatchday = this.matchdetails.rounds[0];
       this.currenMatchdayName = this.matchdetails.rounds[0].name
       this.setMatchDayDetails(this.currenMatchdayName)
       this.matchdetails.rounds.map(round => {
         round.matches.map(match => match.date = new Date(match.date))
       })
+
       this.getTeams()
     })
   }
@@ -46,9 +47,28 @@ export class MatchdetailsComponent implements OnInit {
 
   getTeams = () => {
     this.allTeams = ([].concat.apply([], this.matchdetails.rounds.map(round => round.matches.reduce((x, y) => x.findIndex(e => e.team1.key == y.team1.key) < 0 ? [...x, y] : x, []))).map(match => match.team1.name).filter(this.distinct))
+
+    this.matchdetails.rounds.unshift({
+      "name": "All"
+    })
+
+    this.currenMatchdayName = this.matchdetails.rounds[0].name
   }
 
   distinct = (value, index, self) => {
     return self.indexOf(value) === index
+  }
+
+  updateCheckedTeam = (checked, team) => {
+    if (checked) {
+      this.checkedTeam.push(team)
+    }
+    else {
+      let i = this.checkedTeam.indexOf(team);
+      if (i != -1) {
+        this.checkedTeam.splice(i, 1)
+      }
+    }
+    console.log(this.checkedTeam)
   }
 }

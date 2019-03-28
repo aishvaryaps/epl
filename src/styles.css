@@ -6,4 +6,6 @@
  background-image: url('http://school298.spb.ru/images/300/DSC100305683.jpg');
  background-repeat: no-repeat;
  background-size: cover;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
 }

@@ -14,6 +14,8 @@ import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 import { ChartsModule } from 'ng2-charts';
 
 import { MatchByDatePipe } from './match-by-date.pipe';
+import { RoundFilterPipe } from './round-filter.pipe';
+import { TeamFilterPipe } from './team-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { MatchByDatePipe } from './match-by-date.pipe';
     HomeComponent,
     MatchdetailsComponent,
     ScoreboardComponent,
-    MatchByDatePipe
+    MatchByDatePipe,
+    RoundFilterPipe,
+    TeamFilterPipe
   ],
   imports: [
     BrowserModule,
