@@ -11,6 +11,7 @@ export class ScoreboardComponent implements OnInit {
   private matchdetails: any = [];
   private allTeams: string[];
   teamReport: {won:number}[] = [];
+  searchTeam: string = "";
 
   constructor(private matchdata: MatchdataService) { }
 

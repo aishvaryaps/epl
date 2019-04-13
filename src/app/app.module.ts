@@ -16,6 +16,7 @@ import { ChartsModule } from 'ng2-charts';
 import { MatchByDatePipe } from './match-by-date.pipe';
 import { RoundFilterPipe } from './round-filter.pipe';
 import { TeamFilterPipe } from './team-filter.pipe';
+import { TeamSearchPipe } from './team-search.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TeamFilterPipe } from './team-filter.pipe';
     ScoreboardComponent,
     MatchByDatePipe,
     RoundFilterPipe,
-    TeamFilterPipe
+    TeamFilterPipe,
+    TeamSearchPipe
   ],
   imports: [
     BrowserModule,

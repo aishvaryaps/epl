@@ -1,23 +1,25 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-md-4" *ngFor="let team of teamReport; let i = index">
-      <div class="box-shadow" [ngClass]="i < 3 ? 'scorecardTop' : 'scorecard'">
+    <div class="searchBar col-md-12">
+      <input class="roundedInput" [(ngModel)]="searchTeam" placeholder="&#xf002; Search Team...">
+    </div>
+    <div class="col-md-4" *ngFor="let team of teamReport | teamSearch : searchTeam; let i = index">
+      <div class="box-shadow" [ngClass]="i < 3 && searchTeam === '' ? 'scorecardTop' : 'scorecard'">
         <div class="row teamDetail">
-          <div class="col-md-4" *ngIf="i < 3">
+          <div class="col-md-4" *ngIf="i < 3 && searchTeam === '' ">
             <div class="trophy" [ngClass]="i == 0 ? 'gold' : i==1 ? 'silver' : 'bronze'"> <i class="fa fa-trophy"></i>
             </div>
             <div class="icon">
-                <img src="/assets/images/{{team.name}}.png" height="75" width="75"/>
-                <!-- <img  alt="{{team.name}}" height="42" width="42"/> -->
+              <img src="/assets/images/{{team.name}}.png" height="75" width="75" />
             </div>
           </div>
-          <div [ngClass]="i < 3 ? 'col-md-8' : 'col-md-12'" style="margin-bottom: 12px">
+          <div [ngClass]="i < 3 && searchTeam === '' ? 'col-md-8' : 'col-md-12'" style="margin-bottom: 12px">
             <div class="teamName">{{team.name}}</div>
           </div>
 
           <div class="col-md-6 winLoss">
-            <div class="col-md-12 ratio" *ngIf="i < 3">Win Rate: {{team.winRate}}</div>
+            <div class="col-md-12 ratio" *ngIf="i < 3 && searchTeam === '' ">Win Rate: {{team.winRate}}</div>
             <div style="display: block">
               <canvas baseChart [data]="[team.pieChartData]" [options]="pieChartOptions" [labels]="pieChartLabels"
                 [chartType]="pieChartType"></canvas>
@@ -25,7 +27,7 @@
           </div>
 
           <div class="col-md-6 goalComparision">
-            <div class="col-md-12 ratio" *ngIf="i < 3">Goal Rate: {{team.scoreRate}}</div>
+            <div class="col-md-12 ratio" *ngIf="i < 3 && searchTeam === '' ">Goal Rate: {{team.scoreRate}}</div>
             <div style="display: block">
               <canvas baseChart [datasets]="team.barChartData" [labels]="barChartLabels" [options]="barChartOptions"
                 [chartType]="barChartType" [colors]="barChartColor">

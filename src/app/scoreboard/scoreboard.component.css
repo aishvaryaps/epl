@@ -86,3 +86,36 @@
 .bronze{
     color: #cd7f32;
 }
+
+.searchBar{
+    margin-bottom: 20px;
+}
+
+input.roundedInput {
+	border: 1px solid #ccc;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: 2px 2px 3px #666;
+	-webkit-box-shadow: 2px 2px 3px #666;
+	box-shadow: 2px 2px 3px #666;
+	font-size: 20px;
+	padding: 4px 7px;
+	outline: 0;
+    -webkit-appearance: none;
+    width: 80%;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.27);
+}
+input.roundedInput:focus {
+	border-color: #339933;
+}
+
+.searchButton{
+    background: none;
+    border: none;
+    display:inline-block;
+    vertical-align:middle;
+}
+
+input { font-family: 'FontAwesome'; } /* This is for the placeholder */
