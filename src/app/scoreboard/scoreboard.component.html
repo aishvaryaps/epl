@@ -1,231 +1,33 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
-      <div class="scorecardTop box-shadow">
+
+    <div class="col-md-4" *ngFor="let team of teamReport; let i = index">
+      <div class="box-shadow" [ngClass]="i < 3 ? 'scorecardTop' : 'scorecard'">
         <div class="row teamDetail">
-          <div class="col-md-4">
-            <div class="trophy gold"> <i class="fa fa-trophy"></i> </div>
-            <div class="icon"></div>
+          <div class="col-md-4" *ngIf="i < 3">
+            <div class="trophy" [ngClass]="i == 0 ? 'gold' : i==1 ? 'silver' : 'bronze'"> <i class="fa fa-trophy"></i>
+            </div>
+            <div class="icon">
+                <img src="/assets/images/{{team.name}}.png" height="75" width="75"/>
+                <!-- <img  alt="{{team.name}}" height="42" width="42"/> -->
+            </div>
           </div>
-          <div class="col-md-8">
-            <div class="teamName">Manchester United</div>
+          <div [ngClass]="i < 3 ? 'col-md-8' : 'col-md-12'" style="margin-bottom: 12px">
+            <div class="teamName">{{team.name}}</div>
           </div>
-          <div class="col-md-12 totalMatches">Played 14 matches</div>
 
           <div class="col-md-6 winLoss">
+            <div class="col-md-12 ratio" *ngIf="i < 3">Win Rate: {{team.winRate}}</div>
             <div style="display: block">
-              <canvas baseChart [data]="pieChartData" [options]="pieChartOptions" [labels]="pieChartLabels"
+              <canvas baseChart [data]="[team.pieChartData]" [options]="pieChartOptions" [labels]="pieChartLabels"
                 [chartType]="pieChartType"></canvas>
             </div>
           </div>
 
           <div class="col-md-6 goalComparision">
+            <div class="col-md-12 ratio" *ngIf="i < 3">Goal Rate: {{team.scoreRate}}</div>
             <div style="display: block">
-              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                [chartType]="barChartType" [colors]="barChartColor">
-              </canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="scorecardTop box-shadow">
-        <div class="row teamDetail">
-          <div class="col-md-4">
-            <div class="trophy silver"> <i class="fa fa-trophy"></i> </div>
-            <div class="icon"></div>
-          </div>
-          <div class="col-md-8">
-            <div class="teamName">Chelsea</div>
-          </div>
-          <div class="col-md-12 totalMatches">Played 14 matches</div>
-
-          <div class="col-md-6 winLoss">
-            <div style="display: block">
-              <canvas baseChart [data]="pieChartData" [options]="pieChartOptions" [labels]="pieChartLabels"
-                [chartType]="pieChartType"></canvas>
-            </div>
-          </div>
-
-          <div class="col-md-6 goalComparision">
-            <div style="display: block">
-              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                [chartType]="barChartType" [colors]="barChartColor">
-              </canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="scorecardTop box-shadow">
-        <div class="row teamDetail">
-          <div class="col-md-4">
-            <div class="trophy bronze"> <i class="fa fa-trophy"></i> </div>
-            <div class="icon"></div>
-          </div>
-          <div class="col-md-8">
-            <div class="teamName">Arsenal</div>
-          </div>
-          <div class="col-md-12 totalMatches">Played 14 matches</div>
-
-          <div class="col-md-6 winLoss">
-            <div style="display: block">
-              <canvas baseChart [data]="pieChartData" [options]="pieChartOptions" [labels]="pieChartLabels"
-                [chartType]="pieChartType"></canvas>
-            </div>
-          </div>
-
-          <div class="col-md-6 goalComparision">
-            <div style="display: block">
-              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                [chartType]="barChartType" [colors]="barChartColor">
-              </canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="scorecard box-shadow">
-        <div class="row teamDetail">
-          <div class="col-md-12" style="margin-bottom: 12px">
-            <div class="teamName">Everton</div>
-          </div>
-          <div class="col-md-6 winLoss">
-            <div style="display: block">
-              <canvas baseChart [data]="pieChartData" [options]="pieChartOptions" [labels]="pieChartLabels"
-                [chartType]="pieChartType"></canvas>
-            </div>
-          </div>
-
-          <div class="col-md-6 goalComparision">
-            <div style="display: block">
-              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                [chartType]="barChartType" [colors]="barChartColor">
-              </canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="scorecard box-shadow">
-        <div class="row teamDetail">
-          <div class="col-md-12" style="margin-bottom: 12px">
-            <div class="teamName">Stoke City</div>
-          </div>
-          <div class="col-md-6 winLoss">
-            <div style="display: block">
-              <canvas baseChart [data]="pieChartData" [options]="pieChartOptions" [labels]="pieChartLabels"
-                [chartType]="pieChartType"></canvas>
-            </div>
-          </div>
-
-          <div class="col-md-6 goalComparision">
-            <div style="display: block">
-              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                [chartType]="barChartType" [colors]="barChartColor">
-              </canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="scorecard box-shadow">
-        <div class="row teamDetail">
-          <div class="col-md-12" style="margin-bottom: 12px">
-            <div class="teamName">Southampton</div>
-          </div>
-          <div class="col-md-6 winLoss">
-            <div style="display: block">
-              <canvas baseChart [data]="pieChartData" [options]="pieChartOptions" [labels]="pieChartLabels"
-                [chartType]="pieChartType"></canvas>
-            </div>
-          </div>
-
-          <div class="col-md-6 goalComparision">
-            <div style="display: block">
-              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                [chartType]="barChartType" [colors]="barChartColor">
-              </canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="scorecard box-shadow">
-        <div class="row teamDetail">
-          <div class="col-md-12" style="margin-bottom: 12px">
-            <div class="teamName">Tottenham Hotspur</div>
-          </div>
-          <div class="col-md-6 winLoss">
-            <div style="display: block">
-              <canvas baseChart [data]="pieChartData" [options]="pieChartOptions" [labels]="pieChartLabels"
-                [chartType]="pieChartType"></canvas>
-            </div>
-          </div>
-
-          <div class="col-md-6 goalComparision">
-            <div style="display: block">
-              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                [chartType]="barChartType" [colors]="barChartColor">
-              </canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="scorecard box-shadow">
-        <div class="row teamDetail">
-          <div class="col-md-12" style="margin-bottom: 12px">
-            <div class="teamName">Manchester City</div>
-          </div>
-          <div class="col-md-6 winLoss">
-            <div style="display: block">
-              <canvas baseChart [data]="pieChartData" [options]="pieChartOptions" [labels]="pieChartLabels"
-                [chartType]="pieChartType"></canvas>
-            </div>
-          </div>
-
-          <div class="col-md-6 goalComparision">
-            <div style="display: block">
-              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                [chartType]="barChartType" [colors]="barChartColor">
-              </canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="scorecard box-shadow">
-        <div class="row teamDetail">
-          <div class="col-md-12" style="margin-bottom: 12px">
-            <div class="teamName">Liverpool</div>
-          </div>
-          <div class="col-md-6 winLoss">
-            <div style="display: block">
-              <canvas baseChart [data]="pieChartData" [options]="pieChartOptions" [labels]="pieChartLabels"
-                [chartType]="pieChartType"></canvas>
-            </div>
-          </div>
-
-          <div class="col-md-6 goalComparision">
-            <div style="display: block">
-              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+              <canvas baseChart [datasets]="team.barChartData" [labels]="barChartLabels" [options]="barChartOptions"
                 [chartType]="barChartType" [colors]="barChartColor">
               </canvas>
             </div>

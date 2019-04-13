@@ -1,21 +1,32 @@
 .scorecardTop{
-    height: 250px;
-    background-image: linear-gradient(to top, rgba(255, 8, 68, 0.8) 0%, rgba(255, 177, 153, 0.9) 100%);
+    color: #fff;
+    height: 240px;
+    background-image: linear-gradient(to right, #630b09b5 0%, #d22120 100%);
     border-radius: 16px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .scorecard{
+    color: #fff;
     height: 150px;
-    background-image: linear-gradient(to top, rgba(255, 8, 68, 0.8) 0%, rgba(255, 177, 153, 0.9) 100%);
+    background-image: linear-gradient(to right, #630b09b5 0%, #d22120 100%);
     border-radius: 16px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .icon{
     height: 80px;
     border-radius: 50%;
-    background-color:#29344f;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    padding: 3px;
+}
+
+.icon img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 .teamDetail{
@@ -23,7 +34,7 @@
 }
 
 .teamName{
-    color: #000;
+    color: #fff;
     font-size: 1.4em;
     position: relative;
     float: left;
@@ -44,17 +55,17 @@
 }
 
 .scorecardTop:hover{
-    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+    background-image: linear-gradient(to right, #630b09d4 0%, #d22120 100%);
 }
 
 .scorecard:hover{
-    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+    background-image: linear-gradient(to right, #630b09d4 0%, #d22120 100%);
 }
 
-.totalMatches{
+.ratio{
     margin-top: 15px;
     margin-bottom: 15px;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 .trophy{
