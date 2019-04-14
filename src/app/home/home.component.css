@@ -1,0 +1,61 @@
+.winner{
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee8c 100%);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px #666;
+    padding: 7px 7px;
+}
+
+.winnerDetails{
+    opacity: .95;
+    color: #fff;
+    padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: center;
+}
+
+.winnerPic img{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.icon{
+    display: inline-block;
+}
+
+.icon img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.teamName{
+    color: #fff;
+    font-size: 1.4em;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5px;
+}
+
+.team{
+    margin-bottom: 5px;
+}
+
+.teamColor15-16{
+    background-image: linear-gradient(to left, #0e2e7a, #1d56c1,#0e2e7a);    
+    box-shadow: 0px -3px 6px #383838;
+}
+
+.teamColor16-17{
+    background-image: linear-gradient(to left, #820501, #fb3629,#820501);
+    box-shadow: 0px -3px 6px #a20b06;
+}
+
+.head{
+    margin-bottom: 6px;
+}
+
+.winner a:hover{
+    text-decoration: none;
+}

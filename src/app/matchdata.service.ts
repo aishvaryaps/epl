@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 export class MatchdataService {
   constructor(private http: HttpClient) {
   }
-  public getJSON(): Observable<any> {
+  public getJSON_15_16(): Observable<any> {
     return this.http.get("./assets/json/EPL-2015-16.json")
   }
 }

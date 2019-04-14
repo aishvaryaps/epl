@@ -29,7 +29,7 @@ export class MatchdetailsComponent implements OnInit {
   constructor(private matchdata: MatchdataService) { }
 
   ngOnInit() {
-    this.matchdata.getJSON().subscribe(data => {
+    this.matchdata.getJSON_15_16().subscribe(data => {
       this.matchdetails = data
       this.currenMatchdayName = this.matchdetails.rounds[0].name
       this.setMatchDayDetails(this.currenMatchdayName)

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatchdataService } from '../matchdata.service';
-import { RoundFilterPipe } from '../round-filter.pipe';
 
 @Component({
   selector: 'app-scoreboard',
@@ -10,7 +9,7 @@ import { RoundFilterPipe } from '../round-filter.pipe';
 export class ScoreboardComponent implements OnInit {
   private matchdetails: any = [];
   private allTeams: string[];
-  teamReport: {won:number}[] = [];
+  teamReport: { won: number }[] = [];
   searchTeam: string = "";
 
   constructor(private matchdata: MatchdataService) { }
@@ -37,9 +36,6 @@ export class ScoreboardComponent implements OnInit {
   public barChartLabels = ['Scored', 'Against'];
   public barChartType = 'bar';
   public barChartLegend = true;
-  public barChartData = [
-    { data: [12, 8] }
-  ];
 
   public pieChartColor = [{ backgroundColor: ["#86c7f3", "#ffe199", '#ffffff'] }];
   public barChartColor = [{ backgroundColor: ["#86c7f3", "#ffe199", '#ffffff'] }];
@@ -51,7 +47,6 @@ export class ScoreboardComponent implements OnInit {
     }
   }
   public pieChartLabels = ['Won', 'Lost', 'Drawn'];
-  public pieChartData = [10, 3, 1];
   public pieChartType = 'pie';
 
   ngOnInit() {
@@ -59,7 +54,7 @@ export class ScoreboardComponent implements OnInit {
   }
 
   getMatchDetails = () => {
-    this.matchdata.getJSON().subscribe(data => {
+    this.matchdata.getJSON_15_16().subscribe(data => {
       this.matchdetails = data
 
       this.getTeams()
@@ -132,7 +127,7 @@ export class ScoreboardComponent implements OnInit {
       teamObject.scoreRate = (teamObject.scored / teamObject.against).toFixed(2)
       this.teamReport.push(teamObject)
     })
-    
-    this.teamReport.sort((a,b) => b.won - a.won)
+
+    this.teamReport.sort((a, b) => b.won - a.won)
   }
 }
